@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,user-scalable=no">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Proyecto JavaScript Calculadora</title>
+  </head>
+
+  <body>
+
+    <h1>Calculadora</h1>
+
+    <div class="contenedor">
+
+      <table border="1" cellpadding="0">
+
+        <tr>
+          <td colspan="4" id="numeroPantalla">0</td>
+        </tr>
+
+        <tr>
+          <td><button onclick="tecla(this);">7</button></td>
+          <td><button onclick="tecla(this);">8</button></td>
+          <td><button onclick="tecla(this);">9</button></td>
+          <td><button class="botonOperacion" onclick="tecla(this);">*</button></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="tecla(this);">4</button></td>
+          <td><button onclick="tecla(this);">5</button></td>
+          <td><button onclick="tecla(this);">6</button></td>
+          <td><button class="botonOperacion" onclick="tecla(this);">+</button></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="tecla(this);">1</button></td>
+          <td><button onclick="tecla(this);">2</button></td>
+          <td><button onclick="tecla(this);">3</button></td>
+          <td><button class="botonOperacion" onclick="tecla(this);">-</button></td>
+        </tr>
+
+        <tr>
+          <td><button onclick="tecla(this);">0</button></td>
+          <td><button onclick="tecla(this);">.</button></td>
+          <td><button class="botonCE" onclick="tecla(this);">CE</button></td>
+          <td><button class="botonOperacion" onclick="tecla(this);">/</button></td>
+        </tr>
+
+        <tr>
+          <td colspan="4"><button class="botonIgual" onclick="tecla(this);">=</button></td>
+        </tr>
+
+      </table>
+
+    </div>
+
+  </body>
+
+  <script type="text/javascript">
+
+    var numeroPantalla = document.getElementById('numeroPantalla');
+
+    function tecla(obj) 
+    {
+      var teclaPresionada = obj.innerHTML;
+
+      if (teclaPresionada == '=') 
+      {
+        numeroPantalla.innerHTML = eval(numeroPantalla.innerHTML);
+      } 
+
+      else if (teclaPresionada == 'CE') 
+      {
+        numeroPantalla.innerHTML = '0';
+      } 
+
+      else 
+      {
+        if (numeroPantalla.innerHTML == '0') 
+        {
+          numeroPantalla.innerHTML = teclaPresionada;
+        } 
+
+        else 
+        {
+          numeroPantalla.innerHTML += teclaPresionada;   
+        }
+      }
+    }
+
+  </script>
+
+</html>
